@@ -1,38 +1,112 @@
-.App {
+:root {
+  --primary-color: #1e1e1e;  /* Темный фон контейнера */
+  --secondary-color: #FFFFFF;  /* Белый текст */
+  --background-color: #121212;  /* Фон страницы */
+  --log-background-color: #333333;  /* Фон лога */
+  --button-color: #2979FF;  /* Синий цвет кнопок */
+  --button-hover-color: #1565C0;  /* Контрастный синий для hover */
+  --input-background: #2c2c2c;  /* Фон полей ввода */
+  --input-border: #2979FF;  /* Синяя граница у активных полей ввода */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: var(--secondary-color);
+}
+
+.app-container {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-container {
+  background-color: var(--primary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-container h2 {
+  margin-bottom: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.form-container label {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
-.App-link {
-  color: #61dafb;
+.form-container input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid var(--input-background);
+  background-color: var(--input-background);
+  border-radius: 5px;
+  color: var(--secondary-color);
+  transition: border-color 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-container input:focus {
+  border-color: var(--input-border);
+  outline: none;
+}
+
+.form-container button {
+  background-color: var(--button-color);
+  color: var(--secondary-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.log-toggle-button {
+  background-color: var(--button-color);
+  color: var(--secondary-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.log-toggle-button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.log-container {
+  background-color: var(--log-background-color);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  text-align: left;
+}
+
+.log-container h3 {
+  margin: 0 0 10px 0;
+}
+
+.log-content {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.log-content p {
+  margin: 5px 0;
+  font-size: 0.9em;
 }
