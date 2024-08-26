@@ -21,7 +21,7 @@ const App: React.FC = () => {
     assistantRef.current = initializeAssistant(() => {});
     assistantRef.current.on("data", ({action}: any) => {
       if (action) {
-        dispatch({type: 'ADD_LOG', payload: "Действие " + action.toString()});
+        dispatch({type: 'ADD_LOG', payload: "Действие " + action['payload']});
       }
     })
   })
@@ -75,12 +75,11 @@ const App: React.FC = () => {
         </form>
 
         <button className="log-toggle-button" onClick={() => setIsLogVisible(!isLogVisible)}>
-          {isLogVisible ? 'Показать лог' : 'Скрыть лог'}
+          {isLogVisible ? 'Скрыть лог' : 'Показать лог'}
         </button>
 
         {isLogVisible && (
             <div className="log-container">
-              <h3>Action Log</h3>
               <div className="log-content">
                 {state.log.map((entry, index) => (
                     <p key={index}>{entry}</p>
