@@ -42,7 +42,7 @@ const App: React.FC = () => {
         });
       }
 
-      if (action.type === "SEND_FORM") {
+      if (action.type === "FORM_DONE") {
         dispatch({
           type: "ADD_LOG",
           payload: "Ответ с бэка: " + action.payload
@@ -59,12 +59,7 @@ const App: React.FC = () => {
     dispatch({ type: 'ADD_LOG', payload: logEntry });
 
     assistantRef.current = initializeAssistant(() => {});
-    assistantRef.current.sendData({
-      action: {
-        type: 'SEND_FORM',
-        payload: { name: state.name, phone: state.phone, email: state.email }
-      }
-    });
+    assistantRef.current.sendData({ action: { type: 'done', payload: { param: 'some' } } });
   };
 
   return (
