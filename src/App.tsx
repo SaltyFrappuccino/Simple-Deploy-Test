@@ -21,7 +21,7 @@ const App: React.FC = () => {
     assistantRef.current = initializeAssistant(() => {});
     assistantRef.current.on("data", ({action}: any) => {
       if (action) {
-        dispatch({type: 'ADD_LOG', payload: action});
+        dispatch({type: 'ADD_LOG', payload: "Действие " + action.toString()});
       }
     })
   })
