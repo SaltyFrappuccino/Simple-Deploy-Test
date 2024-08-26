@@ -64,13 +64,13 @@ const App: React.FC = () => {
     dispatch({ type: 'ADD_LOG', payload: logEntry });
 
     assistantRef.current = initializeAssistant(() => {});
-    assistantRef.current.sendAction({ type: 'done', payload: { param: 'some' } });
-    // assistantRef.current.sendData({
-    //   action: {
-    //     action_id: 'done',
-    //     parameters: { param: 'some' }
-    //   }
-    // });
+    // assistantRef.current.sendAction({ type: 'done', payload: { param: 'some' } });
+    assistantRef.current.sendData({
+      action: {
+        action_id: 'done',
+        parameters: { name: state.name, email: state.email, phone: state.phone }
+      }
+    });
   };
 
 
