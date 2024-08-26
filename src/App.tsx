@@ -65,12 +65,12 @@ const App: React.FC = () => {
 
     assistantRef.current = initializeAssistant(() => {});
     assistantRef.current.sendAction({ type: 'done', payload: { param: 'some' } });
-    assistantRef.current.sendData({
-      action: {
-        action_id: 'done',
-        parameters: { param: 'some' }
-      }
-    });
+    // assistantRef.current.sendData({
+    //   action: {
+    //     action_id: 'done',
+    //     parameters: { param: 'some' }
+    //   }
+    // });
   };
 
 
